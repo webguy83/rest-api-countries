@@ -1,14 +1,4 @@
-.toolbar {
-  justify-content: space-between;
-  font-weight: 800;
-}
-
-.dark-mode-container {
-  display: flex;
-  align-items: center;
-}
-
-.dark-mode-text {
-  font-weight: 600;
-  font-size: 1rem;
+.container {
+  width: 80%;
+  max-width: 800px;
 }

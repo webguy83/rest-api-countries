@@ -1,11 +1,22 @@
-<mat-toolbar class="toolbar">
-  <span>Where in the World?</span>
-  <div class="dark-mode-container">
-    <button mat-icon-button aria-label="Dark/Light Mode" (click)="switchMode()">
-      <mat-icon>{{ isDark ? "light_mode" : "dark_mode" }}</mat-icon>
-    </button>
-    <span class="dark-mode-text">{{
-      isDark ? "Light Mode" : "Dark Mode"
-    }}</span>
-  </div>
-</mat-toolbar>
+<app-header></app-header>
+<div class="container">
+  <input
+    type="text"
+    placeholder="Search for a country..."
+    [formControl]="control"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let country of countries" [value]="country">{{
+      country
+    }}</mat-option>
+  </mat-autocomplete>
+  <mat-form-field appearance="outline">
+    <mat-label>Filter By Region</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let region of regions" [value]="region">{{
+        region
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

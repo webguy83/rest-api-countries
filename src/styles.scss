@@ -16,7 +16,8 @@ $custom-typography: mat.define-typography-config(
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$rest-api-countries-primary: mat.define-palette(mat.$brown-palette);
+$rest-api-countries-primary: mat.define-palette(base.$custom-palette);
+
 $rest-api-countries-accent: mat.define-palette(
   mat.$pink-palette,
   A200,
