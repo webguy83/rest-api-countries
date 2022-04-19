@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetCountriesService } from 'src/services/get-countries.service';
-import { FormControl } from '@angular/forms';
+import { Observable, tap } from 'rxjs';
+import { ISanitizedCountriesData } from './interfaces';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +8,13 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  regions: string[] = [];
-  countries: string[] = [];
-  control = new FormControl();
-  constructor(private getCountriesService: GetCountriesService) {}
-  ngOnInit(): void {
-    this.getCountriesService.getCountries$().subscribe({
-      next: (data) => {
-        this.regions = data.regions;
-        this.countries = data.countries.map((country) => country.name);
+  countries: ISanitizedCountriesData[] = [];
+  getCountries(countries: Observable<ISanitizedCountriesData[]>) {
+    countries.subscribe({
+      next: (filteredCountries) => {
+        this.countries = filteredCountries;
       },
     });
   }
+  ngOnInit(): void {}
 }

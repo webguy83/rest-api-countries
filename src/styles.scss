@@ -1,6 +1,7 @@
 // Custom Theming for Angular Material000
 @use "./styles/base";
 @use "@angular/material" as mat;
+@use './app/card/card-theme' as card;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -55,10 +56,12 @@ $rest-api-countries-theme-dark: mat.define-dark-theme(
 
 .theme-light {
   @include mat.all-component-themes($rest-api-countries-theme);
+  @include card.colour($rest-api-countries-theme);
 }
 
 .theme-dark {
   @include mat.all-component-themes($rest-api-countries-theme-dark);
+  @include card.colour($rest-api-countries-theme-dark);
 }
 
 /* You can add global styles to this file, and also import other style files */

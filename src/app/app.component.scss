@@ -1,4 +1,16 @@
+.card-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 80px;
+  //   display: flex;
+  // gap: 40px;
+  // flex-wrap: wrap;
+  // justify-content: center;
+}
+
 .container {
+  margin: 0 auto;
   width: 80%;
-  max-width: 800px;
 }

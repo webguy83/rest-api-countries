@@ -1,0 +1,27 @@
+<form class="container">
+  <input
+    type="text"
+    placeholder="Search for a country..."
+    [formControl]="control"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let country of filteredCountries | async"
+      [value]="country.name"
+      >{{ country.name }}</mat-option
+    >
+  </mat-autocomplete>
+  <mat-form-field appearance="outline">
+    <mat-label>Filter By Region</mat-label>
+    <mat-select
+      [(value)]="selectedRegion"
+      (selectionChange)="onRegionChange($event)"
+    >
+      <mat-option value="all"> All </mat-option>
+      <mat-option *ngFor="let region of regions" [value]="region">{{
+        region
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -1,0 +1,15 @@
+<div class="card-container" *ngIf="countryData">
+  <div
+    class="img-container"
+    [ngStyle]="{ backgroundImage: 'url(' + countryData.flags.png + ')' }"
+  ></div>
+
+  <div class="description">
+    <h2>{{ countryData.name }}</h2>
+    <ul>
+      <li><span>Population: </span>{{ countryData.population }}</li>
+      <li><span>Region: </span>{{ countryData.region }}</li>
+      <li><span>Capital: </span>{{ countryData.capital }}</li>
+    </ul>
+  </div>
+</div>

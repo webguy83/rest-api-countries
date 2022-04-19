@@ -1,76 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ICountry, IWorldData } from 'src/app/interfaces';
-import { map, reduce, tap } from 'rxjs/operators';
-
-interface ITranslation {
-  br: string;
-  de: string;
-  es: string;
-  fa: string;
-  fr: string;
-  hr: string;
-  hu: string;
-  it: string;
-  ja: string;
-  nl: string;
-  pt: string;
-}
-
-interface IRegionalBloc {
-  acronym: string;
-  name: string;
-}
-
-interface ILanguage {
-  iso639_1: string;
-  iso639_2: string;
-  name: string;
-  nativeName: string;
-}
-
-interface IFlag {
-  png: string;
-  svg: string;
-}
-
-interface ICurrency {
-  code: string;
-  name: string;
-  symbol: string;
-}
-
-interface IResponse {
-  alpha2Code: string;
-  alpha3Code: string;
-  altSpellings: string[];
-  area: number;
-  borders?: string[];
-  callingCodes: string[];
-  capital?: string;
-  cioc: string;
-  currencies?: ICurrency[];
-  demonym: string;
-  flag: string;
-  flags: IFlag;
-  independant: boolean;
-  languages: ILanguage[];
-  latlng: number[];
-  name: string;
-  nativeName: string;
-  numbericCode: string;
-  population: number;
-  region: string;
-  regionalBlocs: IRegionalBloc[];
-  subregion: string;
-  timezones: string[];
-  topLevelDomain: string[];
-  translations: ITranslation[];
-}
-
-interface BorderCountry {
-  [key: string]: string;
-}
+import {
+  IBorderCountry,
+  IResponse,
+  ISanitizedCountriesData,
+} from 'src/app/interfaces';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -78,14 +13,14 @@ interface BorderCountry {
 export class GetCountriesService {
   constructor(private http: HttpClient) {}
 
-  getCountries$() {
-    return this.http
-      .get<IResponse[]>('https://restcountries.com/v2/all')
-      .pipe(map(this.convertData.bind(this)));
-  }
+  getCountries$ = this.http
+    .get<IResponse[]>('https://restcountries.com/v2/all')
+    .pipe(map(this._convertData.bind(this)));
 
-  modifyCountryData(countries: IResponse[]) {
-    const countryMap = countries.reduce((obj: BorderCountry, country) => {
+  private _modifyCountryData(
+    countries: IResponse[]
+  ): ISanitizedCountriesData[] {
+    const countryMap = countries.reduce((obj: IBorderCountry, country) => {
       obj[country.alpha3Code] = country.name;
       return obj;
     }, {});
@@ -112,12 +47,12 @@ export class GetCountriesService {
     });
   }
 
-  convertData(countries: IResponse[]) {
+  private _convertData(countries: IResponse[]) {
     const regions = countries.map((country) => {
       return country.region;
     });
     return {
-      countries: this.modifyCountryData(countries),
+      countries: this._modifyCountryData(countries),
       regions: [...new Set(regions)],
     };
   }

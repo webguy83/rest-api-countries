@@ -10,9 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './header/header.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FilterBarComponent } from './filter-bar/filter-bar.component';
+import { MatCardModule } from '@angular/material/card';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, FilterBarComponent, CardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -24,6 +27,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     FormsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
