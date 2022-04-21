@@ -1,0 +1,220 @@
+@use "sass:map";
+
+$dark-primary-text: hsl(200, 15%, 8%);
+$dark-secondary-text: rgba(#000939, 0.54);
+$dark-disabled-text: rgba(#000939, 0.38);
+$dark-dividers: rgba(#000939, 0.12);
+$dark-focused: rgba(#000939, 0.12);
+$light-primary-text: hsl(0, 0%, 100%);
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$custom-primary-light: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : $dark-primary-text,
+        100 : $dark-primary-text,
+        200 : $dark-primary-text,
+        300 : $dark-primary-text,
+        400 : $dark-primary-text,
+        500 : $dark-primary-text,
+        600 : $dark-primary-text,
+        700 : $dark-primary-text,
+        800 : $dark-primary-text,
+        900 : $dark-primary-text,
+        A100 : $dark-primary-text,
+        A200 : $dark-primary-text,
+        A400 : $dark-primary-text,
+        A700 : $dark-primary-text,
+    )
+);
+
+$custom-primary-dark: (
+    50 : #e6e7e9,
+    100 : #bfc4c7,
+    200 : #959ca2,
+    300 : #6b747d,
+    400 : #4b5761,
+    500 : #2b3945,
+    600 : #26333e,
+    700 : #202c36,
+    800 : #1a242e,
+    900 : #10171f,
+    A100 : #62a9ff,
+    A200 : #2f8dff,
+    A400 : #0072fb,
+    A700 : #0066e1,
+    contrast: (
+        50 : $dark-primary-text,
+        100 : $dark-primary-text,
+        200 : $dark-primary-text,
+        300 : $light-primary-text,
+        400 : $light-primary-text,
+        500 : $light-primary-text,
+        600 : $light-primary-text,
+        700 : $light-primary-text,
+        800 : $light-primary-text,
+        900 : $light-primary-text,
+        A100 : $dark-primary-text,
+        A200 : $light-primary-text,
+        A400 : $light-primary-text,
+        A700 : $light-primary-text,
+    )
+);
+
+$custom-accent-light: (
+  50 : #fefefe,
+  100 : #fefefe,
+  200 : #fdfdfd,
+  300 : #fcfcfc,
+  400 : #fbfbfb,
+  500 : #fafafa,
+  600 : #f9f9f9,
+  700 : #f9f9f9,
+  800 : #f8f8f8,
+  900 : #f6f6f6,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (
+      50 : $dark-primary-text,
+      100 : $dark-primary-text,
+      200 : $dark-primary-text,
+      300 : $dark-primary-text,
+      400 : $dark-primary-text,
+      500 : $dark-primary-text,
+      600 : $dark-primary-text,
+      700 : $dark-primary-text,
+      800 : $dark-primary-text,
+      900 : $dark-primary-text,
+      A100 : $dark-primary-text,
+      A200 : $dark-primary-text,
+      A400 : $dark-primary-text,
+      A700 : $dark-primary-text,
+  )
+);
+
+$custom-accent-dark: (
+  50 : #e4e6e7,
+  100 : #bcc0c3,
+  200 : #90969b,
+  300 : #636b73,
+  400 : #414c55,
+  500 : #202c37,
+  600 : #1c2731,
+  700 : #18212a,
+  800 : #131b23,
+  900 : #0b1016,
+  A100 : #59a0ff,
+  A200 : #2683ff,
+  A400 : #0068f2,
+  A700 : #005dd9,
+  contrast: (
+      50 : $dark-primary-text,
+      100 : $dark-primary-text,
+      200 : $dark-primary-text,
+      300 : $light-primary-text,
+      400 : $light-primary-text,
+      500 : $light-primary-text,
+      600 : $light-primary-text,
+      700 : $light-primary-text,
+      800 : $light-primary-text,
+      900 : $light-primary-text,
+      A100 : $dark-primary-text,
+      A200 : $light-primary-text,
+      A400 : $light-primary-text,
+      A700 : $light-primary-text,
+  )
+);
+
+// Background palette for light themes.
+$light-theme-background-palette: (
+  status-bar: map.get($custom-accent-light, 300),
+  app-bar: white,
+  background: map.get($custom-accent-light, 500),
+  hover: rgba(#243b53, 0.04),
+  card: white,
+  dialog: white,
+  disabled-button: rgba(#243b53, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map.get($custom-accent-light, 300),
+  selected-disabled-button: map.get($custom-accent-light, 400),
+  disabled-button-toggle: map.get($custom-accent-light, 200),
+  unselected-chip: map.get($custom-accent-light, 200),
+  disabled-list-option: map.get($custom-accent-light, 200),
+  tooltip: map.get($custom-accent-light, 700),
+);
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: #0b2844,
+  app-bar: map.get($custom-accent-dark, 900),
+  background: map.get($custom-accent-dark, 500),
+  hover: rgba(white, 0.04),
+  card: map.get($custom-accent-dark, 800),
+  dialog: map.get($custom-accent-dark, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map.get($custom-accent-dark, 800),
+  focused-button: $light-focused,
+  selected-button: map.get($custom-accent-dark, 900),
+  selected-disabled-button: map.get($custom-accent-dark, 800),
+  disabled-button-toggle: #243b53,
+  unselected-chip: map.get($custom-accent-dark, 700),
+  disabled-list-option: #243b53,
+  tooltip: map.get($custom-accent-dark, 700),
+);
+
+// Foreground palette for light themes.
+$light-theme-foreground-palette: (
+  base: #243b53,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba(#243b53, 0.26),
+  disabled-text: $dark-disabled-text,
+  elevation: #243b53,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-secondary-text,
+  icon: rgba(#243b53, 0.54),
+  icons: rgba(#243b53, 0.54),
+  text: rgba(#243b53, 0.87),
+  slider-min: rgba(#243b53, 0.87),
+  slider-off: rgba(#243b53, 0.26),
+  slider-off-active: rgba(#243b53, 0.38),
+);
+
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base: white,
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba(white, 0.3),
+  disabled-text: $light-disabled-text,
+  elevation: black,
+  hint-text: $light-disabled-text,
+  secondary-text: $light-secondary-text,
+  icon: white,
+  icons: white,
+  text: white,
+  slider-min: white,
+  slider-off: rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);

@@ -1,5 +1,5 @@
 // Custom Theming for Angular Material000
-@use "./styles/base";
+@use "./styles/" as app;
 @use "@angular/material" as mat;
 @use './app/card/card-theme' as card;
 // Plus imports for other components in your app.
@@ -17,9 +17,12 @@ $custom-typography: mat.define-typography-config(
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$rest-api-countries-primary: mat.define-palette(base.$custom-palette);
+$primary-light: mat.define-palette(app.$custom-primary-light);
+$primary-dark: mat.define-palette(app.$custom-primary-dark);
+$accent-light: mat.define-palette(app.$custom-accent-light);
+$accent-dark: mat.define-palette(app.$custom-accent-dark);
 
-$rest-api-countries-accent: mat.define-palette(
+$accent: mat.define-palette(
   mat.$pink-palette,
   A200,
   A100,
@@ -27,41 +30,46 @@ $rest-api-countries-accent: mat.define-palette(
 );
 
 // The warn palette is optional (defaults to red).
-$rest-api-countries-warn: mat.define-palette(mat.$red-palette);
+$warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$rest-api-countries-theme: mat.define-light-theme(
+$theme-light: app.define-light-theme(
   (
     color: (
-      primary: $rest-api-countries-primary,
-      accent: $rest-api-countries-accent,
-      warn: $rest-api-countries-warn,
+      primary: $primary-light,
+      accent: $accent-light,
+      warn: $warn,
     ),
   )
 );
-$rest-api-countries-theme-dark: mat.define-dark-theme(
+$theme-dark: app.define-dark-theme(
   (
     color: (
-      primary: $rest-api-countries-primary,
-      accent: $rest-api-countries-accent,
-      warn: $rest-api-countries-warn,
+      primary: $primary-dark,
+      accent: $accent-dark,
+      warn: $warn,
     ),
   )
 );
+
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
+@mixin render($lightOrDark) {
+  @include mat.all-component-themes($lightOrDark);
+  @include card.colour($lightOrDark);
+}
+
 .theme-light {
-  @include mat.all-component-themes($rest-api-countries-theme);
-  @include card.colour($rest-api-countries-theme);
+  @include render($theme-light);
 }
 
 .theme-dark {
-  @include mat.all-component-themes($rest-api-countries-theme-dark);
-  @include card.colour($rest-api-countries-theme-dark);
+  @include render($theme-dark);
 }
 
 /* You can add global styles to this file, and also import other style files */

@@ -3,8 +3,8 @@
 
 @mixin colour($theme) {
     $color-config: mat.get-color-config($theme);
-    $accent-palette: map.get($color-config, 'accent');
+    $primary-palette: map.get($color-config, 'primary');
     .card-container {
-        background-color: mat.get-color-from-palette($accent-palette, 100);
+        background-color: mat.get-color-from-palette($primary-palette);
     }
   }
