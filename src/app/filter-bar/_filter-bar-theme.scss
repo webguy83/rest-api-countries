@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin colour($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground: map.get($color-config, "foreground");
+  $background: map.get($color-config, "background");
+  $foreground-colour: map.get($foreground, "base");
+  $background-colour: map.get($background, "base");
+  $input-text-placeholder: map.get($color-config, "primary", "A100-contrast");
+
+  .custom-select,
+  .custom-select option {
+    background-color: $background-colour;
+    color: $foreground-colour;
+  }
+
+  .custom-select select {
+    color: $foreground-colour;
+  }
+}

@@ -9,7 +9,9 @@
     <ul>
       <li><span>Population: </span>{{ countryData.population }}</li>
       <li><span>Region: </span>{{ countryData.region }}</li>
-      <li><span>Capital: </span>{{ countryData.capital }}</li>
+      <li *ngIf="countryData.capital">
+        <span>Capital: </span>{{ countryData.capital }}
+      </li>
     </ul>
   </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatSelectChange } from '@angular/material/select';
 import { map, Observable, startWith } from 'rxjs';
 import { GetCountriesService } from 'src/services/get-countries.service';
 import { ISanitizedCountriesData } from '../interfaces';
@@ -19,8 +18,9 @@ export class FilterBarComponent implements OnInit {
   countries: ISanitizedCountriesData[] = [];
   modifiedCountries: ISanitizedCountriesData[] = [];
   filteredCountries: Observable<ISanitizedCountriesData[]> | null = null;
+  selectRegionIsOpen: boolean = false;
 
-  control = new FormControl();
+  countryControl = new FormControl();
   constructor(private getCountriesService: GetCountriesService) {}
   ngOnInit(): void {
     this.getCountriesService.getCountries$.subscribe({
@@ -43,21 +43,31 @@ export class FilterBarComponent implements OnInit {
   }
 
   _filterCountries() {
-    this.filteredCountries = this.control.valueChanges.pipe(
+    this.filteredCountries = this.countryControl.valueChanges.pipe(
       startWith(''),
       map((val) => this._filter(val))
     );
     this.countriesEvent.emit(this.filteredCountries);
   }
 
-  onRegionChange(evt: MatSelectChange) {
-    this.selectedRegion = evt.value;
+  onRegionChange(evt: Event) {
+    this.selectedRegion = (evt.target as HTMLInputElement).value;
 
     this.modifiedCountries = this.countries.filter((country) => {
       return (
-        country.region === this.selectedRegion || this.selectedRegion === 'all'
+        country.region === this.selectedRegion ||
+        this.selectedRegion === 'all' ||
+        this.selectedRegion === ''
       );
     });
     this._filterCountries();
+  }
+
+  onRegionClick() {
+    this.selectRegionIsOpen = !this.selectRegionIsOpen;
+  }
+
+  onRegionBlur() {
+    this.selectRegionIsOpen = false;
   }
 }

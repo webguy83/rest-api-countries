@@ -1,0 +1,23 @@
+@use "../../styles/base" as *;
+
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  @include drop-shadow();
+}
+
+.search-field {
+  width: 100%;
+  padding: 15px 35px 15px 50px;
+  border: none;
+  @include border-radius();
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 1.3em;
+}

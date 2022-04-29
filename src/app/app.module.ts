@@ -13,9 +13,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from './card/card.component';
+import { FilterCountriesInputComponent } from './filter-countries-input/filter-countries-input.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FilterBarComponent, CardComponent],
+  declarations: [AppComponent, HeaderComponent, FilterBarComponent, CardComponent, FilterCountriesInputComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

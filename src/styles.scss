@@ -1,7 +1,10 @@
 // Custom Theming for Angular Material000
 @use "./styles/" as app;
 @use "@angular/material" as mat;
-@use './app/card/card-theme' as card;
+@use "./app/card/card-theme" as card;
+@use "./app/filter-bar/filter-bar-theme" as filterBar;
+@use "./app/filter-countries-input/filter-countries-input-theme" as
+  filterCountriesInputTheme;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -22,12 +25,7 @@ $primary-dark: mat.define-palette(app.$custom-primary-dark);
 $accent-light: mat.define-palette(app.$custom-accent-light);
 $accent-dark: mat.define-palette(app.$custom-accent-dark);
 
-$accent: mat.define-palette(
-  mat.$pink-palette,
-  A200,
-  A100,
-  A400
-);
+$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $warn: mat.define-palette(mat.$red-palette);
@@ -53,8 +51,6 @@ $theme-dark: app.define-dark-theme(
   )
 );
 
-
-
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -62,6 +58,8 @@ $theme-dark: app.define-dark-theme(
 @mixin render($lightOrDark) {
   @include mat.all-component-themes($lightOrDark);
   @include card.colour($lightOrDark);
+  @include filterBar.colour($lightOrDark);
+  @include filterCountriesInputTheme.colour($lightOrDark);
 }
 
 .theme-light {

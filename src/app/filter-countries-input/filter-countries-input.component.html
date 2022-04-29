@@ -1,0 +1,17 @@
+<div class="input-container">
+  <input
+    type="text"
+    class="search-field"
+    placeholder="Search for a country..."
+    [formControl]="countryControl"
+    [matAutocomplete]="auto"
+  />
+  <span class="search-icon material-icons"> search </span>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let country of filteredCountries | async"
+      [value]="country.name"
+      >{{ country.name }}</mat-option
+    >
+  </mat-autocomplete>
+</div>
