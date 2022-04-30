@@ -14,9 +14,10 @@ import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from './card/card.component';
 import { FilterCountriesInputComponent } from './filter-countries-input/filter-countries-input.component';
+import { FilterRegionsInputComponent } from './filter-regions-input/filter-regions-input.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FilterBarComponent, CardComponent, FilterCountriesInputComponent],
+  declarations: [AppComponent, HeaderComponent, FilterBarComponent, CardComponent, FilterCountriesInputComponent, FilterRegionsInputComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

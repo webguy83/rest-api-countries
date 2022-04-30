@@ -14,14 +14,16 @@ export class FilterBarComponent implements OnInit {
     Observable<ISanitizedCountriesData[]>
   >();
   regions: string[] = [];
-  selectedRegion: string = 'all';
+
   countries: ISanitizedCountriesData[] = [];
   modifiedCountries: ISanitizedCountriesData[] = [];
   filteredCountries: Observable<ISanitizedCountriesData[]> | null = null;
-  selectRegionIsOpen: boolean = false;
+  selectedRegion: string = 'all';
 
   countryControl = new FormControl();
+
   constructor(private getCountriesService: GetCountriesService) {}
+
   ngOnInit(): void {
     this.getCountriesService.getCountries$.subscribe({
       next: (data) => {
@@ -61,13 +63,5 @@ export class FilterBarComponent implements OnInit {
       );
     });
     this._filterCountries();
-  }
-
-  onRegionClick() {
-    this.selectRegionIsOpen = !this.selectRegionIsOpen;
-  }
-
-  onRegionBlur() {
-    this.selectRegionIsOpen = false;
   }
 }
