@@ -1,4 +1,4 @@
-@use "../../styles/base" as *;
+@use "../../../styles/base" as *;
 
 .toolbar {
   justify-content: space-between;
@@ -14,4 +14,10 @@
 .dark-mode-text {
   font-weight: 600;
   font-size: 1rem;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 1rem;
+  }
 }

@@ -1,0 +1,36 @@
+<div class="detail-view" *ngIf="country">
+  <button class="back-button" (click)="backClick()">Back</button>
+  <img src="{{ country.flags.svg }}" alt="{{ country.name }}" />
+
+  <div class="details">
+    <h1>{{ country.name }}</h1>
+    <div class="raw-data">
+      <ul>
+        <li><span>Native Name: </span> {{ country.nativeName }}</li>
+        <li><span>Population: </span>{{ country.population }}</li>
+        <li><span>Region: </span>{{ country.region }}</li>
+        <li><span>Sub Region: </span>{{ country.subregion }}</li>
+        <li *ngIf="country.capital">
+          <span>Capital: </span>{{ country.capital }}
+        </li>
+      </ul>
+      <ul>
+        <li><span>Top Level Domain: </span>{{ country.topLevelDomain }}</li>
+        <li><span>Currencies: </span>{{ country.currencies }}</li>
+        <li><span>Languages: </span>{{ country.languages }}</li>
+      </ul>
+    </div>
+    <div
+      class="border-country-container"
+      *ngIf="country.borderCountries.length > 0"
+    >
+      <span>Border Countries: </span>
+      <button
+        class="border-country-btn"
+        *ngFor="let borderCountry of country.borderCountries"
+      >
+        {{ borderCountry }}
+      </button>
+    </div>
+  </div>
+</div>

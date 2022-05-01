@@ -7,7 +7,6 @@
   $background: map.get($color-config, "background");
   $foreground-colour: map.get($foreground, "base");
   $background-colour: map.get($background, "base");
-  $input-text-placeholder: map.get($color-config, "primary", "A100-contrast");
 
   .custom-select,
   .custom-select option {

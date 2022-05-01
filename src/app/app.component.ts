@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ISanitizedCountriesData } from './interfaces';
+import { CountryCardService } from './services/country-card.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ import { ISanitizedCountriesData } from './interfaces';
 })
 export class AppComponent implements OnInit {
   countries: ISanitizedCountriesData[] = [];
+  currentCountrySelected: ISanitizedCountriesData | null = null;
+  constructor(private countryCardService: CountryCardService) {}
+
   getCountries(countries: Observable<ISanitizedCountriesData[]>) {
     countries.subscribe({
       next: (filteredCountries) => {
@@ -16,5 +20,13 @@ export class AppComponent implements OnInit {
       },
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countryCardService.currentCardSelected.subscribe((country) => {
+      this.currentCountrySelected = country;
+    });
+  }
+
+  onSelectedCountry(country: ISanitizedCountriesData | null) {
+    this.countryCardService.updateCurrentCard(country);
+  }
 }

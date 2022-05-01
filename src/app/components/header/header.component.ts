@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
-import { LocalStorageService } from 'src/services/local-storage.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({

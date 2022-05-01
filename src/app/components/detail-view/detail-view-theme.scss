@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin colour($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground: map.get($color-config, "foreground");
+  $background: map.get($color-config, "background");
+  $foreground-colour: map.get($foreground, "base");
+  $background-colour: map.get($background, "base");
+  .back-button,
+  .border-country-btn {
+    background-color: $background-colour;
+    color: $foreground-colour;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+    padding: 0.5em 3em;
+    border: 0;
+    cursor: pointer;
+    border-radius: 0.1em;
+    // TODO: fix this
+    box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 20%);
+    &:hover {
+      background-color: $foreground-colour;
+      color: $background-colour;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+    }
+  }
+}

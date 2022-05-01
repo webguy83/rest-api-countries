@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
-import { GetCountriesService } from 'src/services/get-countries.service';
-import { ISanitizedCountriesData } from '../interfaces';
+import { GetCountriesService } from '../../services/get-countries.service';
+import { ISanitizedCountriesData } from '../../interfaces';
 
 @Component({
   selector: 'app-filter-bar',

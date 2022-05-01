@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ISanitizedCountriesData } from '../interfaces';
+import { ISanitizedCountriesData } from '../../interfaces';
 
 @Component({
   selector: 'app-filter-countries-input',

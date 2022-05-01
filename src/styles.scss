@@ -6,6 +6,7 @@
   filterCountriesInputTheme;
 @use "./app/filter-regions-input/filter-regions-input-theme" as
   filterRegionsInputTheme;
+@use "./app/detail-view/detail-view-theme" as detailViewTheme;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -61,6 +62,7 @@ $theme-dark: app.define-dark-theme(
   @include card.colour($lightOrDark);
   @include filterRegionsInputTheme.colour($lightOrDark);
   @include filterCountriesInputTheme.colour($lightOrDark);
+  @include detailViewTheme.colour($lightOrDark);
 }
 
 .theme-light {

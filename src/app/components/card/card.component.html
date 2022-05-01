@@ -1,4 +1,4 @@
-<div class="card-container" *ngIf="countryData">
+<div class="card-container" *ngIf="countryData" (click)="onCardClick()">
   <div
     class="img-container"
     [ngStyle]="{ backgroundImage: 'url(' + countryData.flags.png + ')' }"
