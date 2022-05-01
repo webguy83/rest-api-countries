@@ -1,12 +1,12 @@
 // Custom Theming for Angular Material000
 @use "./styles/" as app;
 @use "@angular/material" as mat;
-@use "./app/card/card-theme" as card;
-@use "./app/filter-countries-input/filter-countries-input-theme" as
+@use "./app/components/card/card-theme" as card;
+@use "./app/components/filter-countries-input/filter-countries-input-theme" as
   filterCountriesInputTheme;
-@use "./app/filter-regions-input/filter-regions-input-theme" as
+@use "./app/components/filter-regions-input/filter-regions-input-theme" as
   filterRegionsInputTheme;
-@use "./app/detail-view/detail-view-theme" as detailViewTheme;
+@use "./app/components/detail-view/detail-view-theme" as detailViewTheme;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
