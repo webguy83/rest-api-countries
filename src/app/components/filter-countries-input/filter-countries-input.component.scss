@@ -4,14 +4,14 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  @include drop-shadow();
+  box-shadow: var(--main-drop-shadow);
 }
 
 .search-field {
   width: 100%;
   padding: 15px 35px 15px 50px;
   border: none;
-  @include border-radius();
+  border-radius: var(--main-border-radius);
   outline: none;
 }
 

@@ -1,6 +1,6 @@
-@use '@angular/material' as mat;
-@use 'sass:map';
-@use 'palette';
+@use "@angular/material" as mat;
+@use "sass:map";
+@use "palette";
 
 @function define-light-theme($config) {
   $theme: mat.define-light-theme($config);

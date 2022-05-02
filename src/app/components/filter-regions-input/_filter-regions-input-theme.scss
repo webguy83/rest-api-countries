@@ -3,18 +3,16 @@
 
 @mixin colour($theme) {
   $color-config: mat.get-color-config($theme);
-  $foreground: map.get($color-config, "foreground");
-  $background: map.get($color-config, "background");
-  $foreground-colour: map.get($foreground, "base");
-  $background-colour: map.get($background, "base");
+  $foreground: map.get($color-config, "foreground", "base");
+  $background: map.get($color-config, "background", "base");
 
   .custom-select,
   .custom-select option {
-    background-color: $background-colour;
-    color: $foreground-colour;
+    background-color: $background;
+    color: $foreground;
   }
 
   .custom-select select {
-    color: $foreground-colour;
+    color: $foreground;
   }
 }

@@ -8,8 +8,8 @@
 }
 
 .card-container {
-  @include border-radius();
-  @include drop-shadow();
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-drop-shadow);
   height: 100%;
   overflow: hidden;
   cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 :host {
-  @include drop-shadow();
+  box-shadow: var(--main-drop-shadow);
 }
 
 span {

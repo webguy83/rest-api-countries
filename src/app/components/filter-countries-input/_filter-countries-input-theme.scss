@@ -3,15 +3,13 @@
 
 @mixin colour($theme) {
   $color-config: mat.get-color-config($theme);
-  $foreground: map.get($color-config, "foreground");
-  $background: map.get($color-config, "background");
-  $foreground-colour: map.get($foreground, "base");
-  $background-colour: map.get($background, "base");
+  $foreground: map.get($color-config, "foreground", "base");
+  $background: map.get($color-config, "background", "base");
   $input-text-placeholder: map.get($color-config, "primary", "A100-contrast");
 
   .search-field {
-    background-color: $background-colour;
-    color: $foreground-colour;
+    background-color: $background;
+    color: $foreground;
   }
 
   .search-icon {

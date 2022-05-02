@@ -3,7 +3,7 @@
 .toolbar {
   justify-content: space-between;
   font-weight: 800;
-  @include drop-shadow();
+  box-shadow: var(--main-drop-shadow);
 }
 
 .dark-mode-container {

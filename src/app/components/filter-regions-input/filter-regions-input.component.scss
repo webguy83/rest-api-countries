@@ -11,8 +11,8 @@
   min-width: 180px;
   margin: 0 auto;
   z-index: 10;
-  @include drop-shadow();
-  @include border-radius();
+  box-shadow: var(--main-drop-shadow);
+  border-radius: var(--main-border-radius);
 
   select {
     border: none;

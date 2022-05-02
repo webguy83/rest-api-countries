@@ -5,12 +5,13 @@
     <div class="card-grid">
       <app-card
         [countryData]="country"
-        *ngFor="let country of countries"
+        *ngFor="let country of filteredCountries"
       ></app-card>
     </div>
   </div>
   <app-detail-view
     *ngIf="currentCountrySelected"
     [country]="currentCountrySelected"
+    [allCountries]="allCountries"
   ></app-detail-view>
 </div>

@@ -8,6 +8,7 @@ import { ISanitizedCountriesData } from '../../interfaces';
   styleUrls: ['./detail-view.component.scss'],
 })
 export class DetailViewComponent implements OnInit {
+  @Input() allCountries: ISanitizedCountriesData[] = [];
   @Input() country: ISanitizedCountriesData | null = null;
   constructor(private countryCardService: CountryCardService) {}
 
@@ -15,5 +16,16 @@ export class DetailViewComponent implements OnInit {
 
   backClick() {
     this.countryCardService.updateCurrentCard(null);
+  }
+
+  findCountry(country: string) {
+    const borderCountry: ISanitizedCountriesData | undefined =
+      this.allCountries.find((c) => {
+        return c.name === country;
+      });
+
+    if (borderCountry) {
+      this.countryCardService.updateCurrentCard(borderCountry);
+    }
   }
 }

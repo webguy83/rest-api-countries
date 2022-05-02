@@ -1,5 +1,5 @@
 <div class="detail-view" *ngIf="country">
-  <button mat-button class="back-button" (click)="backClick()">
+  <button mat-button class="back-button btn" (click)="backClick()">
     <mat-icon>keyboard_backspace</mat-icon><span>Back</span>
   </button>
   <img src="{{ country.flags.svg }}" alt="{{ country.name }}" />
@@ -28,7 +28,8 @@
     >
       <span>Border Countries: </span>
       <button
-        class="border-country-btn"
+        class="border-country-btn btn"
+        (click)="findCountry(borderCountry)"
         *ngFor="let borderCountry of country.borderCountries"
       >
         {{ borderCountry }}
