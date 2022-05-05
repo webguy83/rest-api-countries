@@ -9,7 +9,7 @@
   <span class="search-icon material-icons"> search </span>
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option
-      *ngFor="let country of filteredCountries | async"
+      *ngFor="let country of filteredCountries"
       [value]="country.name"
       >{{ country.name }}</mat-option
     >

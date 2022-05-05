@@ -25,7 +25,7 @@
     margin: 0;
     display: block;
     width: 100%;
-    padding: 12px 55px 15px 15px;
+    padding: 15px 55px 15px 15px;
     font-size: 14px;
   }
   &:after {
@@ -48,4 +48,88 @@
   top: 10px;
   right: 10px;
   z-index: 10;
+}
+
+////////////////////////////////////
+.select-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--main-drop-shadow);
+}
+
+.select-box .options-container {
+  background-color: #2b3945;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  top: 50px;
+  order: 1;
+  box-shadow: var(--main-drop-shadow);
+}
+
+.selected {
+  color: #f5f6fa;
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--main-border-radius);
+  padding: 1.2em 6em 1.2em 2em;
+  background-color: #2b3945;
+  order: 0;
+}
+
+.selected::after {
+  position: absolute;
+  right: 0.7em;
+  font-size: 1.6em;
+  font-family: "Material Icons";
+  content: "\e5ce";
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  margin-top: 0.6rem;
+  padding-top: 1em;
+}
+
+.select-box .options-container.active + .selected::after {
+  content: "\e5cf";
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option {
+  cursor: pointer;
+  padding: 0.5em 2em 0.5em;
+}
+
+.select-box .option:hover {
+  background: #414b57;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
 }

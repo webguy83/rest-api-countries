@@ -1,4 +1,4 @@
-<div class="form-group">
+<!-- <div class="form-group">
   <label
     class="custom-select"
     [ngClass]="{ 'open-region': selectRegionIsOpen }"
@@ -17,4 +17,18 @@
       <option *ngFor="let region of regions">{{ region }}</option>
     </select>
   </label>
+</div> -->
+
+<div class="select-box">
+  <div class="options-container" [ngClass]="{ active: selectRegionIsOpen }">
+    <div class="option">
+      <input type="radio" class="radio" id="all" name="region" />
+      <label for="all">All</label>
+    </div>
+    <div class="option" *ngFor="let region of regions">
+      <input type="radio" class="radio" id="{{ region }}" name="region" />
+      <label for="all">{{ region }}</label>
+    </div>
+  </div>
+  <div (click)="onRegionClick()" class="selected">Filter By Region</div>
 </div>

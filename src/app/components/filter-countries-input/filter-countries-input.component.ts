@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { GetCountriesService } from 'src/app/services/get-countries.service';
 import { ISanitizedCountriesData } from '../../interfaces';
 
 @Component({
@@ -9,10 +9,13 @@ import { ISanitizedCountriesData } from '../../interfaces';
   styleUrls: ['./filter-countries-input.component.scss'],
 })
 export class FilterCountriesInputComponent implements OnInit {
-  @Input() filteredCountries: Observable<ISanitizedCountriesData[]> | null =
-    null;
+  filteredCountries: ISanitizedCountriesData[] = [];
   @Input() countryControl = new FormControl();
-  constructor() {}
+  constructor(private getCountriesService: GetCountriesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCountriesService.filterCountries$.subscribe((countries) => {
+      this.filteredCountries = countries;
+    });
+  }
 }

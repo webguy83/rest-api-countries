@@ -16,6 +16,7 @@ import { CardComponent } from './components/card/card.component';
 import { FilterCountriesInputComponent } from './components/filter-countries-input/filter-countries-input.component';
 import { FilterRegionsInputComponent } from './components/filter-regions-input/filter-regions-input.component';
 import { DetailViewComponent } from './components/detail-view/detail-view.component';
+import { CardAreaComponent } from './components/card-area/card-area.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DetailViewComponent } from './components/detail-view/detail-view.compon
     FilterCountriesInputComponent,
     FilterRegionsInputComponent,
     DetailViewComponent,
+    CardAreaComponent,
   ],
   imports: [
     BrowserModule,

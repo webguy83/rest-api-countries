@@ -1,5 +1,10 @@
 @use "../../../styles/base" as *;
 
+:host {
+  width: 35%;
+  min-width: 15rem;
+}
+
 .input-container {
   position: relative;
   display: flex;
@@ -9,7 +14,7 @@
 
 .search-field {
   width: 100%;
-  padding: 15px 35px 15px 50px;
+  padding: 1.2em 3em 1.2em 4em;
   border: none;
   border-radius: var(--main-border-radius);
   outline: none;
@@ -17,7 +22,8 @@
 
 .search-icon {
   position: absolute;
-  top: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 20px;
   font-size: 1.3em;
 }

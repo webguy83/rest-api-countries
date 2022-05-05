@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-filter-regions-input',
@@ -10,6 +17,10 @@ export class FilterRegionsInputComponent implements OnInit {
 
   @Input() regions: string[] = [];
   @Output() onRegionChange = new EventEmitter<Event>();
+
+  @HostListener('document:click', ['$event']) documentClickEvent() {
+    this.selectRegionIsOpen = !this.selectRegionIsOpen;
+  }
   constructor() {}
 
   ngOnInit(): void {}

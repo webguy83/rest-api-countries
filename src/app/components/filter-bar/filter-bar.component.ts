@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { GetCountriesService } from '../../services/get-countries.service';
@@ -10,14 +10,9 @@ import { ISanitizedCountriesData } from '../../interfaces';
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent implements OnInit {
-  @Output() countriesEvent = new EventEmitter<
-    Observable<ISanitizedCountriesData[]>
-  >();
   regions: string[] = [];
-
   countries: ISanitizedCountriesData[] = [];
   modifiedCountries: ISanitizedCountriesData[] = [];
-  filteredCountries: Observable<ISanitizedCountriesData[]> | null = null;
   selectedRegion: string = 'all';
 
   countryControl = new FormControl();
@@ -45,11 +40,16 @@ export class FilterBarComponent implements OnInit {
   }
 
   _filterCountries() {
-    this.filteredCountries = this.countryControl.valueChanges.pipe(
-      startWith(''),
-      map((val) => this._filter(val))
-    );
-    this.countriesEvent.emit(this.filteredCountries);
+    this.countryControl.valueChanges
+      .pipe(
+        startWith(''),
+        map((val) => this._filter(val))
+      )
+      .subscribe({
+        next: (filteredCountries) => {
+          this.getCountriesService.filterCountries$.emit(filteredCountries);
+        },
+      });
   }
 
   onRegionChange(evt: Event) {

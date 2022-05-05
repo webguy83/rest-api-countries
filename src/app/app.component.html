@@ -1,14 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <div class="card-area" *ngIf="!currentCountrySelected">
-    <app-filter-bar (countriesEvent)="getCountries($event)"></app-filter-bar>
-    <div class="card-grid">
-      <app-card
-        [countryData]="country"
-        *ngFor="let country of filteredCountries"
-      ></app-card>
-    </div>
-  </div>
+  <app-card-area *ngIf="!currentCountrySelected"></app-card-area>
   <app-detail-view
     *ngIf="currentCountrySelected"
     [country]="currentCountrySelected"
