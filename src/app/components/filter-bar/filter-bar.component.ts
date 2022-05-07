@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { map, startWith } from 'rxjs';
 import { GetCountriesService } from '../../services/get-countries.service';
 import { ISanitizedCountriesData } from '../../interfaces';
 
@@ -13,7 +13,6 @@ export class FilterBarComponent implements OnInit {
   regions: string[] = [];
   countries: ISanitizedCountriesData[] = [];
   modifiedCountries: ISanitizedCountriesData[] = [];
-  selectedRegion: string = 'all';
 
   countryControl = new FormControl();
 
@@ -52,15 +51,9 @@ export class FilterBarComponent implements OnInit {
       });
   }
 
-  onRegionChange(evt: Event) {
-    this.selectedRegion = (evt.target as HTMLInputElement).value;
-
+  onRegionChange(region: string) {
     this.modifiedCountries = this.countries.filter((country) => {
-      return (
-        country.region === this.selectedRegion ||
-        this.selectedRegion === 'all' ||
-        this.selectedRegion === ''
-      );
+      return country.region === region || region === 'All' || region === '';
     });
     this._filterCountries();
   }

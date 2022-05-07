@@ -22,13 +22,29 @@
 <div class="select-box">
   <div class="options-container" [ngClass]="{ active: selectRegionIsOpen }">
     <div class="option">
-      <input type="radio" class="radio" id="all" name="region" />
-      <label for="all">All</label>
+      <label>
+        All
+        <input
+          type="radio"
+          class="radio"
+          name="region"
+          value="All"
+          (change)="onRegionChange($event)"
+        />
+      </label>
     </div>
     <div class="option" *ngFor="let region of regions">
-      <input type="radio" class="radio" id="{{ region }}" name="region" />
-      <label for="all">{{ region }}</label>
+      <label>
+        {{ region }}
+        <input
+          type="radio"
+          class="radio"
+          name="region"
+          value="{{ region }}"
+          (change)="onRegionChange($event)"
+        />
+      </label>
     </div>
   </div>
-  <div (click)="onRegionClick()" class="selected">Filter By Region</div>
+  <div (click)="onRegionClick()" class="selected">{{ selectedRegion }}</div>
 </div>

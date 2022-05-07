@@ -1,11 +1,12 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
-  HostListener,
   Input,
   OnInit,
   Output,
 } from '@angular/core';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-filter-regions-input',
@@ -16,14 +17,23 @@ export class FilterRegionsInputComponent implements OnInit {
   selectRegionIsOpen: boolean = false;
 
   @Input() regions: string[] = [];
-  @Output() onRegionChange = new EventEmitter<Event>();
+  // @Output('onRegionChange') onRegionChange$ = new EventEmitter<Event>();
+  @Output() selectedRegionChange = new EventEmitter<string>();
 
-  @HostListener('document:click', ['$event']) documentClickEvent() {
-    this.selectRegionIsOpen = !this.selectRegionIsOpen;
+  selectedRegion = 'Filter By Region';
+  constructor(
+    private utilitiesService: UtilitiesService,
+    private eRef: ElementRef
+  ) {}
+
+  ngOnInit() {
+    this.selectedRegionChange.subscribe((region) => {
+      this.selectedRegion = region;
+    });
+    this.utilitiesService.documentClickedTarget.subscribe((target) =>
+      this.documentClickListener(target)
+    );
   }
-  constructor() {}
-
-  ngOnInit(): void {}
 
   onRegionClick() {
     this.selectRegionIsOpen = !this.selectRegionIsOpen;
@@ -33,7 +43,15 @@ export class FilterRegionsInputComponent implements OnInit {
     this.selectRegionIsOpen = false;
   }
 
-  onChange(evt: Event) {
-    this.onRegionChange.emit(evt);
+  onRegionChange(evt: Event) {
+    const region = (evt.target as HTMLInputElement).value;
+    this.selectedRegionChange.emit(region);
+    this.selectRegionIsOpen = false;
+  }
+
+  documentClickListener(target: HTMLElement): void {
+    if (!this.eRef.nativeElement.contains(target)) {
+      this.selectRegionIsOpen = false;
+    }
   }
 }
