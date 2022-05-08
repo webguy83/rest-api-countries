@@ -193,21 +193,21 @@ $dark-theme-background-palette: (
 
 // Foreground palette for light themes.
 $light-theme-foreground-palette: (
-  base: hsl(211, 39%, 23%),
+  base: $dark-primary-text,
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $dark-disabled-text,
-  disabled-button: rgba(#243b53, 0.26),
+  disabled-button: rgba($dark-primary-text, 0.26),
   disabled-text: $dark-disabled-text,
-  elevation: #243b53,
+  elevation: $dark-primary-text,
   hint-text: $dark-disabled-text,
   secondary-text: $dark-secondary-text,
-  icon: rgba(#243b53, 0.54),
-  icons: rgba(#243b53, 0.54),
-  text: rgba(#243b53, 0.87),
-  slider-min: rgba(#243b53, 0.87),
-  slider-off: rgba(#243b53, 0.26),
-  slider-off-active: rgba(#243b53, 0.38),
+  icon: rgba($dark-primary-text, 0.54),
+  icons: rgba($dark-primary-text, 0.54),
+  text: rgba($dark-primary-text, 0.87),
+  slider-min: rgba($dark-primary-text, 0.87),
+  slider-off: rgba($dark-primary-text, 0.26),
+  slider-off-active: rgba($dark-primary-text, 0.38),
 );
 
 // Foreground palette for dark themes.
