@@ -1,11 +1,12 @@
 <div class="detail-view" *ngIf="country">
   <button mat-button class="back-button btn" (click)="backClick()">
-    <mat-icon>keyboard_backspace</mat-icon><span>Back</span>
+    <mat-icon>keyboard_backspace</mat-icon
+    ><span class="back-btn-text">Back</span>
   </button>
   <img src="{{ country.flags.svg }}" alt="{{ country.name }}" />
 
   <div class="details">
-    <h1>{{ country.name }}</h1>
+    <h2>{{ country.name }}</h2>
     <div class="raw-data">
       <ul>
         <li><span>Native Name: </span> {{ country.nativeName }}</li>

@@ -17,7 +17,6 @@ import { FilterCountriesInputComponent } from './components/filter-countries-inp
 import { FilterRegionsInputComponent } from './components/filter-regions-input/filter-regions-input.component';
 import { DetailViewComponent } from './components/detail-view/detail-view.component';
 import { CardAreaComponent } from './components/card-area/card-area.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

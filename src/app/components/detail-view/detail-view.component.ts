@@ -17,7 +17,7 @@ export class DetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCountriesService.getCountries$.subscribe((data) => {
+    this.getCountriesService.getCountriesHttp.subscribe((data) => {
       this.allCountries = data.countries;
     });
   }

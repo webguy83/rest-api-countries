@@ -13,13 +13,12 @@ export class FilterBarComponent implements OnInit {
   regions: string[] = [];
   countries: IMainCountryData[] = [];
   modifiedCountries: IMainCountryData[] = [];
-
   countryControl = new FormControl();
 
   constructor(private getCountriesService: GetCountriesService) {}
 
   ngOnInit(): void {
-    this.getCountriesService.getCountries$.subscribe({
+    this.getCountriesService.getCountriesHttp.subscribe({
       next: (data) => {
         this.regions = data.regions;
         this.countries = data.countries;
@@ -38,7 +37,7 @@ export class FilterBarComponent implements OnInit {
     });
   }
 
-  _filterCountries() {
+  private _filterCountries() {
     this.countryControl.valueChanges
       .pipe(
         startWith(''),
@@ -46,7 +45,9 @@ export class FilterBarComponent implements OnInit {
       )
       .subscribe({
         next: (filteredCountries) => {
-          this.getCountriesService.filterCountries$.emit(filteredCountries);
+          this.getCountriesService.filterCountriesChanged.emit(
+            filteredCountries
+          );
         },
       });
   }

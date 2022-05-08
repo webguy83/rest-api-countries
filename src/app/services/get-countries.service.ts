@@ -11,10 +11,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class GetCountriesService {
-  filterCountries$ = new EventEmitter<IMainCountryData[]>();
+  filterCountriesChanged = new EventEmitter<IMainCountryData[]>();
   constructor(private http: HttpClient) {}
 
-  getCountries$ = this.http
+  getCountriesHttp = this.http
     .get<IResponse[]>('https://restcountries.com/v2/all')
     .pipe(map(this._convertData.bind(this)));
 

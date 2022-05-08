@@ -14,7 +14,7 @@ export class FilterCountriesInputComponent implements OnInit {
   constructor(private getCountriesService: GetCountriesService) {}
 
   ngOnInit(): void {
-    this.getCountriesService.filterCountries$.subscribe((countries) => {
+    this.getCountriesService.filterCountriesChanged.subscribe((countries) => {
       this.filteredCountries = countries;
     });
   }

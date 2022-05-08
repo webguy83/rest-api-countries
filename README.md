@@ -1,27 +1,67 @@
-# RestApiCountries
+# Frontend Mentor - REST Countries API with color theme switcher solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Code scaffolding
+## Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### The challenge
 
-## Build
+Users should be able to:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode _(optional)_
 
-## Running unit tests
+### Screenshot
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![](./screenshots/RestApiCountries.png)
 
-## Running end-to-end tests
+### Links
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## Further help
+## My process
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Built with
+
+- [Angular](https://angular.io/) - JS library
+- [Angular Material](https://material.angular.io/) - Angular Library
+- CSS custom properties
+- Flexbox
+- CSS Grid
+
+### What I learned
+
+Constructing a workflow in Angular and customizing the UI/colour layouts in Angular Material for the first time. Managed to keep media queries to a bare minimum and have it responsive.
+
+### Continued development
+
+Mostly work on optimal ways of working with Angular services and customizing things in Angular Material.
+
+### Useful resources
+
+- [Angular](https://angular.io/) - The single source of truth.
+- [Angular University](https://blog.angular-university.io/) - One of the best courses to learn Angular with.
+
+## Author
+
+- Github - [Curtis](https://github.com/webguy83)
+- Frontend Mentor - [@webguy83](https://www.frontendmentor.io/webguy83)

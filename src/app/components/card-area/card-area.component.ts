@@ -24,7 +24,7 @@ export class CardAreaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCountriesService.filterCountries$.subscribe((countries) => {
+    this.getCountriesService.filterCountriesChanged.subscribe((countries) => {
       this.filteredCountries = countries;
     });
   }

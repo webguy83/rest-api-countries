@@ -4,6 +4,10 @@
   width: 35%;
   min-width: 15rem;
 }
+::placeholder {
+  font-size: 0.8rem;
+  font-family: inherit;
+}
 
 .input-container {
   position: relative;

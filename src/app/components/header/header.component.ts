@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isDark: boolean = this.localStorageService.getItem('isDark');
+  isDark = !!this.localStorageService.getItem('isDark');
   baseClassList = '';
 
   constructor(

@@ -1,8 +1,8 @@
 <app-header></app-header>
-<div class="container">
+<main class="container">
   <app-card-area *ngIf="!currentCountrySelected"></app-card-area>
   <app-detail-view
     *ngIf="currentCountrySelected"
     [country]="currentCountrySelected"
   ></app-detail-view>
-</div>
+</main>

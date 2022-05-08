@@ -1,24 +1,3 @@
-<!-- <div class="form-group">
-  <label
-    class="custom-select"
-    [ngClass]="{ 'open-region': selectRegionIsOpen }"
-    for="regions"
-  >
-    <select
-      class="regions-control"
-      id="regions"
-      name="regions"
-      (change)="onChange($event)"
-      (click)="onRegionClick()"
-      (blur)="onRegionBlur()"
-    >
-      <option value="">Filter by Region</option>
-      <option value="all">All</option>
-      <option *ngFor="let region of regions">{{ region }}</option>
-    </select>
-  </label>
-</div> -->
-
 <div class="select-box">
   <div class="options-container" [ngClass]="{ active: selectRegionIsOpen }">
     <div class="option">

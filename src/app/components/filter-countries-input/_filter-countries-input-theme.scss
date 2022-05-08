@@ -12,13 +12,8 @@
     color: $foreground;
   }
 
-  .search-icon {
-    color: $input-text-placeholder;
-  }
-
+  .search-icon,
   ::placeholder {
     color: $input-text-placeholder;
-    font-size: 0.8rem;
-    font-family: inherit;
   }
 }

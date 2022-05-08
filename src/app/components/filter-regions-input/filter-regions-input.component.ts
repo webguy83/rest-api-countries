@@ -17,7 +17,6 @@ export class FilterRegionsInputComponent implements OnInit {
   selectRegionIsOpen: boolean = false;
 
   @Input() regions: string[] = [];
-  // @Output('onRegionChange') onRegionChange$ = new EventEmitter<Event>();
   @Output() selectedRegionChange = new EventEmitter<string>();
 
   selectedRegion = 'Filter By Region';

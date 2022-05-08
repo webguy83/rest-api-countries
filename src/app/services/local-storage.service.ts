@@ -10,7 +10,7 @@ export class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(data));
   }
 
-  public getItem(key: string): any {
+  public getItem(key: string): null | string {
     const item = localStorage.getItem(key);
     if (!item) {
       return null;
