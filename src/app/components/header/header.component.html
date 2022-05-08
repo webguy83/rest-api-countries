@@ -1,11 +1,17 @@
-<mat-toolbar color="primary" class="toolbar">
-  <h1 class="title">Where in the World?</h1>
-  <div class="dark-mode-container">
-    <button mat-icon-button aria-label="Dark/Light Mode" (click)="switchMode()">
-      <mat-icon>{{ isDark ? "light_mode" : "dark_mode" }}</mat-icon>
-    </button>
-    <span class="dark-mode-text">{{
-      isDark ? "Light Mode" : "Dark Mode"
-    }}</span>
-  </div>
-</mat-toolbar>
+<header>
+  <mat-toolbar color="primary" class="toolbar">
+    <h1 class="title">Where in the World?</h1>
+    <div class="dark-mode-container">
+      <button
+        mat-icon-button
+        aria-label="Dark/Light Mode"
+        (click)="switchMode()"
+      >
+        <mat-icon>{{ isDark ? "light_mode" : "dark_mode" }}</mat-icon>
+      </button>
+      <span class="dark-mode-text">{{
+        isDark ? "Light Mode" : "Dark Mode"
+      }}</span>
+    </div>
+  </mat-toolbar>
+</header>
