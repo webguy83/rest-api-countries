@@ -6,14 +6,16 @@
   box-shadow: var(--main-drop-shadow);
 }
 
-.dark-mode-container {
-  display: flex;
-  align-items: center;
-}
+.dark-mode {
+  &-text {
+    font-weight: 600;
+    font-size: 1rem;
+  }
 
-.dark-mode-text {
-  font-weight: 600;
-  font-size: 1rem;
+  &-container {
+    display: flex;
+    align-items: center;
+  }
 }
 
 @media (max-width: 500px) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISanitizedCountriesData } from './interfaces';
+import { IMainCountryData } from './interfaces';
 import { CountryCardService } from './services/country-card.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CountryCardService } from './services/country-card.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  currentCountrySelected: ISanitizedCountriesData | null = null;
+  currentCountrySelected: IMainCountryData | null = null;
   constructor(private countryCardService: CountryCardService) {}
 
   ngOnInit(): void {

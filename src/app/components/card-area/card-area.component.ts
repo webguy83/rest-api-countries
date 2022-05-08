@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ISanitizedCountriesData } from 'src/app/interfaces';
+import { IMainCountryData } from 'src/app/interfaces';
 import { GetCountriesService } from 'src/app/services/get-countries.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 
@@ -16,7 +16,7 @@ export class CardAreaComponent implements OnInit {
     );
   }
 
-  filteredCountries: ISanitizedCountriesData[] = [];
+  filteredCountries: IMainCountryData[] = [];
 
   constructor(
     private getCountriesService: GetCountriesService,

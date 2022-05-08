@@ -6,21 +6,23 @@
   $color-config: mat.get-color-config($theme);
   $foreground: map.get($color-config, "foreground", "base");
   $background: map.get($color-config, "background", "base");
+  $foregroundHover: map.get($color-config, "foreground", "hover");
+  $backgroundHover: map.get($color-config, "background", "hover");
 
   .btn {
     --main-drop-shadow: 0px 0px 5px 2px rgb(0 0 0 / 20%);
     background-color: $background;
     color: $foreground;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+    transition: all 0.3s;
     padding: 0.5em 2em;
     border: 0;
     cursor: pointer;
     border-radius: 0.1em;
     box-shadow: var(--main-drop-shadow);
     &:hover {
-      background-color: $foreground;
-      color: $background;
-      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+      background-color: $backgroundHover;
+      color: $foregroundHover;
+      transition: all 0.3s;
     }
   }
 }

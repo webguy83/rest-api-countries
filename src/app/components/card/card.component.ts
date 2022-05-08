@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CountryCardService } from 'src/app/services/country-card.service';
-import { ISanitizedCountriesData } from '../../interfaces';
+import { IMainCountryData } from '../../interfaces';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +8,7 @@ import { ISanitizedCountriesData } from '../../interfaces';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() countryData!: ISanitizedCountriesData;
+  @Input() countryData!: IMainCountryData;
   constructor(private countryCardService: CountryCardService) {}
 
   ngOnInit(): void {}

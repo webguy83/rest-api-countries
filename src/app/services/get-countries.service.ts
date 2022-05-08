@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   IBorderCountry,
   IResponse,
-  ISanitizedCountriesData,
+  IMainCountryData,
 } from 'src/app/interfaces';
 import { map } from 'rxjs/operators';
 
@@ -11,16 +11,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class GetCountriesService {
-  filterCountries$ = new EventEmitter<ISanitizedCountriesData[]>();
+  filterCountries$ = new EventEmitter<IMainCountryData[]>();
   constructor(private http: HttpClient) {}
 
   getCountries$ = this.http
     .get<IResponse[]>('https://restcountries.com/v2/all')
     .pipe(map(this._convertData.bind(this)));
 
-  private _modifyCountryData(
-    countries: IResponse[]
-  ): ISanitizedCountriesData[] {
+  private _modifyCountryData(countries: IResponse[]): IMainCountryData[] {
     const countryMap = countries.reduce((obj: IBorderCountry, country) => {
       obj[country.alpha3Code] = country.name;
       return obj;
@@ -49,9 +47,11 @@ export class GetCountriesService {
   }
 
   private _convertData(countries: IResponse[]) {
-    const regions = countries.map((country) => {
-      return country.region;
-    });
+    const regions = countries
+      .map((country) => {
+        return country.region;
+      })
+      .sort((a, b) => a.localeCompare(b));
     return {
       countries: this._modifyCountryData(countries),
       regions: [...new Set(regions)],

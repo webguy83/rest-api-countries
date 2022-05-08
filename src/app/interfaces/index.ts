@@ -63,7 +63,7 @@ export interface IResponse {
   translations: ITranslation[];
 }
 
-export interface ISanitizedCountriesData {
+export interface IMainCountryData {
   name: string;
   nativeName: string;
   population: string;
@@ -79,12 +79,4 @@ export interface ISanitizedCountriesData {
 
 export interface IBorderCountry {
   [key: string]: string;
-}
-
-export interface ICardData {
-  image: string;
-  name: string;
-  population: string;
-  region: string;
-  capital: string;
 }

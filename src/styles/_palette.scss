@@ -1,32 +1,39 @@
 @use "sass:map";
 
-$dark-primary-text: #111517;
-$dark-secondary-text: rgba(#111517, 0.54);
-$dark-disabled-text: rgba(#111517, 0.38);
-$dark-dividers: rgba(#111517, 0.12);
-$dark-focused: rgba(#111517, 0.12);
-$light-primary-text: hsl(0, 0%, 100%);
-$light-secondary-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
-$light-input-text: #858585;
+$darkModeText: #ffffff;
+$darkModeElements: #2b3945;
+$darkModeBg: #202c37;
+$lightModeText: #111517;
+$lightModeElements: #858585;
+$lightModeBg: #fafafa;
+
+$dark-primary-text: $lightModeText;
+$dark-secondary-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+$light-primary-text: $darkModeText;
+$light-secondary-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+$light-input-text: $lightModeElements;
 
 $custom-primary-light: (
-  50: #ffffff,
-  100: #ffffff,
-  200: #ffffff,
-  300: #ffffff,
-  400: #ffffff,
-  500: #ffffff,
-  600: #ffffff,
-  700: #ffffff,
-  800: #ffffff,
-  900: #ffffff,
-  A100: #ffffff,
-  A200: #ffffff,
-  A400: #ffffff,
-  A700: #ffffff,
+  50: $darkModeText,
+  100: $darkModeText,
+  200: $darkModeText,
+  300: $darkModeText,
+  400: $darkModeText,
+  500: $darkModeText,
+  600: #f2f2f2,
+  700: #e6e6e6,
+  800: #d9d9d9,
+  900: #cccccc,
+  A100: $darkModeText,
+  A200: $darkModeText,
+  A400: $darkModeText,
+  A700: #bfbfbf,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -51,7 +58,7 @@ $custom-primary-dark: (
   200: #959ca2,
   300: #6b747d,
   400: #4b5761,
-  500: #2b3945,
+  500: $darkModeElements,
   600: #26333e,
   700: #202c36,
   800: #1a242e,
@@ -84,15 +91,15 @@ $custom-accent-light: (
   200: #fdfdfd,
   300: #fcfcfc,
   400: #fbfbfb,
-  500: #fafafa,
+  500: $lightModeBg,
   600: #f9f9f9,
   700: #f9f9f9,
   800: #f8f8f8,
   900: #f6f6f6,
-  A100: #ffffff,
-  A200: #ffffff,
-  A400: #ffffff,
-  A700: #ffffff,
+  A100: $darkModeText,
+  A200: $darkModeText,
+  A400: $darkModeText,
+  A700: $darkModeText,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -117,10 +124,10 @@ $custom-accent-dark: (
   200: #90969b,
   300: #636b73,
   400: #414c55,
-  500: #202c37,
+  500: $darkModeBg,
   600: #1c2731,
   700: #18212a,
-  800: #131b23,
+  800: $darkModeElements,
   900: #0b1016,
   A100: #59a0ff,
   A200: #2683ff,
@@ -148,13 +155,13 @@ $custom-accent-dark: (
 $light-theme-background-palette: (
   base: map.get($custom-primary-light, 500),
   status-bar: map.get($custom-accent-light, 300),
-  app-bar: white,
+  app-bar: $darkModeText,
   background: map.get($custom-accent-light, 500),
-  hover: rgba(#243b53, 0.04),
-  card: white,
-  dialog: white,
+  hover: rgba($lightModeText, 0.04),
+  card: $darkModeText,
+  dialog: $darkModeText,
   disabled-button: rgba(#243b53, 0.12),
-  raised-button: white,
+  raised-button: $darkModeText,
   focused-button: $dark-focused,
   selected-button: map.get($custom-accent-light, 300),
   selected-disabled-button: map.get($custom-accent-light, 400),
@@ -170,10 +177,10 @@ $dark-theme-background-palette: (
   status-bar: #0b2844,
   app-bar: map.get($custom-accent-dark, 900),
   background: map.get($custom-accent-dark, 500),
-  hover: rgba(white, 0.04),
+  hover: rgba($darkModeText, 0.04),
   card: map.get($custom-accent-dark, 800),
   dialog: map.get($custom-accent-dark, 800),
-  disabled-button: rgba(white, 0.12),
+  disabled-button: rgba($darkModeText, 0.12),
   raised-button: map.get($custom-accent-dark, 800),
   focused-button: $light-focused,
   selected-button: map.get($custom-accent-dark, 900),
@@ -186,7 +193,7 @@ $dark-theme-background-palette: (
 
 // Foreground palette for light themes.
 $light-theme-foreground-palette: (
-  base: #243b53,
+  base: hsl(211, 39%, 23%),
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $dark-disabled-text,
@@ -205,19 +212,19 @@ $light-theme-foreground-palette: (
 
 // Foreground palette for dark themes.
 $dark-theme-foreground-palette: (
-  base: white,
+  base: $light-primary-text,
   divider: $light-dividers,
   dividers: $light-dividers,
   disabled: $light-disabled-text,
-  disabled-button: rgba(white, 0.3),
+  disabled-button: rgba($light-primary-text, 0.3),
   disabled-text: $light-disabled-text,
   elevation: black,
   hint-text: $light-disabled-text,
   secondary-text: $light-secondary-text,
-  icon: white,
-  icons: white,
-  text: white,
-  slider-min: white,
-  slider-off: rgba(white, 0.3),
-  slider-off-active: rgba(white, 0.3),
+  icon: $light-primary-text,
+  icons: $light-primary-text,
+  text: $light-primary-text,
+  slider-min: $light-primary-text,
+  slider-off: rgba($light-primary-text, 0.3),
+  slider-off-active: rgba($light-primary-text, 0.3),
 );

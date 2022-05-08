@@ -5,14 +5,33 @@
   $color-config: mat.get-color-config($theme);
   $foreground: map.get($color-config, "foreground", "base");
   $background: map.get($color-config, "background", "base");
+  $foregroundHover: map.get($color-config, "foreground", "hover");
+  $backgroundHover: map.get($color-config, "background", "hover");
+  $scrollBgColour: map.get($color-config, "primary", 900);
+  $scrollThumbColour: map.get($color-config, "primary", 600);
+  $dividerColour: map.get($color-config, "foreground", "divider");
 
-  .custom-select,
-  .custom-select option {
+  .option:hover {
+    background: $backgroundHover;
+    color: $foregroundHover;
+  }
+
+  .selected {
     background-color: $background;
     color: $foreground;
   }
 
-  .custom-select select {
+  .options-container {
+    background-color: $background;
     color: $foreground;
+    cursor: pointer;
+    &::-webkit-scrollbar {
+      background: $scrollThumbColour;
+      border-left: 1px solid $dividerColour;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollBgColour;
+    }
   }
 }

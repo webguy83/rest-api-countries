@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs';
 import { GetCountriesService } from '../../services/get-countries.service';
-import { ISanitizedCountriesData } from '../../interfaces';
+import { IMainCountryData } from '../../interfaces';
 
 @Component({
   selector: 'app-filter-bar',
@@ -11,8 +11,8 @@ import { ISanitizedCountriesData } from '../../interfaces';
 })
 export class FilterBarComponent implements OnInit {
   regions: string[] = [];
-  countries: ISanitizedCountriesData[] = [];
-  modifiedCountries: ISanitizedCountriesData[] = [];
+  countries: IMainCountryData[] = [];
+  modifiedCountries: IMainCountryData[] = [];
 
   countryControl = new FormControl();
 
@@ -30,7 +30,7 @@ export class FilterBarComponent implements OnInit {
     });
   }
 
-  private _filter(val: string): ISanitizedCountriesData[] {
+  private _filter(val: string): IMainCountryData[] {
     const filterVal = val.toLowerCase();
 
     return this.modifiedCountries.filter((country) => {

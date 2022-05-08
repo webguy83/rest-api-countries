@@ -15,11 +15,11 @@
   cursor: pointer;
   transform: scale(1);
   transition: all cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.2s;
-}
 
-.card-container:hover {
-  transform: scale(1.05);
-  transition: all cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.2s;
+  &:hover {
+    transform: scale(1.05);
+    transition: all cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.2s;
+  }
 }
 
 .description {

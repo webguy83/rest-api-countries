@@ -1,14 +1,14 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { ISanitizedCountriesData } from '../interfaces';
+import { IMainCountryData } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountryCardService {
-  currentCardSelected = new EventEmitter<ISanitizedCountriesData | null>();
+  currentCardSelected = new EventEmitter<IMainCountryData | null>();
   constructor() {}
 
-  updateCurrentCard(countryData: ISanitizedCountriesData | null) {
+  updateCurrentCard(countryData: IMainCountryData | null) {
     this.currentCardSelected.emit(countryData);
   }
 }
